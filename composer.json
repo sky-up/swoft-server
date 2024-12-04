@@ -1,5 +1,5 @@
 {
-  "name": "swoft/server",
+  "name": "swoft-fork/server",
   "type": "library",
   "version": "v2.0.11",
   "keywords": [
@@ -8,10 +8,10 @@
     "swoft"
   ],
   "description": "swoft base server component",
-  "homepage": "https://github.com/swoft-cloud/swoft-server",
+  "homepage": "https://github.com/sky-up/swoft-server",
   "license": "Apache-2.0",
   "require": {
-    "swoft/stdlib": "~2.0.0"
+    "swoft-fork/stdlib": "~2.0.0"
   },
   "autoload": {
     "psr-4": {
