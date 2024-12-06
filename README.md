@@ -16,7 +16,7 @@ Swoft Server Component
 - composer command
 
 ```bash
-composer require swoft/server
+composer require swoft-fork/server
 ```
 
 ## Resources
