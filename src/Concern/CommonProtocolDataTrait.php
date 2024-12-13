@@ -35,7 +35,7 @@ trait CommonProtocolDataTrait
     /**
      * @return mixed
      */
-    public function getData()
+    public function getData(): mixed
     {
         return $this->data;
     }
@@ -70,7 +70,7 @@ trait CommonProtocolDataTrait
      *
      * @return mixed
      */
-    public function getExtValue(string $key, $default = null)
+    public function getExtValue(string $key, $default = null): mixed
     {
         return $this->ext[$key] ?? $default;
     }
