@@ -18,7 +18,6 @@ use Swoft\Http\Server\HttpServer;
 use Swoft\Log\Helper\CLog;
 use Swoft\Server\Contract\ServerInterface;
 use Swoft\Server\Event\ServerStartEvent;
-use Swoft\Server\Event\WorkerEvent;
 use Swoft\Server\Exception\ServerException;
 use Swoft\Server\Helper\ServerHelper;
 use Swoft\Stdlib\Helper\Dir;
@@ -497,7 +496,15 @@ abstract class Server implements ServerInterface
 
         // Always enable coroutine hook on server
         CLog::info('Swoole\Runtime::enableCoroutine');
-        Runtime::enableCoroutine();
+        // 更安全的写法，先检查常量是否存在
+        $hookFlags = SWOOLE_HOOK_ALL;
+        if (defined('SWOOLE_HOOK_CURL')) {
+            $hookFlags ^= SWOOLE_HOOK_CURL;
+        }
+        if (defined('SWOOLE_HOOK_NATIVE_CURL')) {
+            $hookFlags ^= SWOOLE_HOOK_NATIVE_CURL;
+        }
+        Runtime::enableCoroutine($hookFlags);
 
         Swoft::trigger(ServerEvent::BEFORE_SETTING, $this);
 
