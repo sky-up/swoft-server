@@ -18,6 +18,7 @@ use Swoft\Http\Server\HttpServer;
 use Swoft\Log\Helper\CLog;
 use Swoft\Server\Contract\ServerInterface;
 use Swoft\Server\Event\ServerStartEvent;
+use Swoft\Server\Event\WorkerEvent;
 use Swoft\Server\Exception\ServerException;
 use Swoft\Server\Helper\ServerHelper;
 use Swoft\Stdlib\Helper\Dir;
