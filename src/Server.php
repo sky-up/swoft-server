@@ -502,9 +502,6 @@ abstract class Server implements ServerInterface
         if (defined('SWOOLE_HOOK_CURL')) {
             $hookFlags ^= SWOOLE_HOOK_CURL;
         }
-        if (defined('SWOOLE_HOOK_NATIVE_CURL')) {
-            $hookFlags ^= SWOOLE_HOOK_NATIVE_CURL;
-        }
         Runtime::enableCoroutine($hookFlags);
 
         Swoft::trigger(ServerEvent::BEFORE_SETTING, $this);
