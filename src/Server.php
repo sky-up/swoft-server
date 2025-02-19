@@ -497,12 +497,7 @@ abstract class Server implements ServerInterface
 
         // Always enable coroutine hook on server
         CLog::info('Swoole\Runtime::enableCoroutine');
-        // 更安全的写法，先检查常量是否存在
-        $hookFlags = SWOOLE_HOOK_ALL;
-        if (defined('SWOOLE_HOOK_CURL')) {
-            $hookFlags ^= SWOOLE_HOOK_CURL;
-        }
-        Runtime::enableCoroutine($hookFlags);
+        Runtime::enableCoroutine();
 
         Swoft::trigger(ServerEvent::BEFORE_SETTING, $this);
 
